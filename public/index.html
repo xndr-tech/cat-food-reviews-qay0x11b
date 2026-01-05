@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Find the best cat food for your feline friend with our comprehensive and unbiased reviews. Detailed analysis of ingredients, nutrition, and brand reputation.">
-    <title>Cat Food Reviews - Find the Best for Your Feline Friend!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Unbiased reviews, comparisons, and guides for cat food brands. Find the best nutrition for your feline friend with expert insights and user feedback.">
+    <title>Cat Food Reviews - Unbiased Opinions for Your Feline Friend</title>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #e11d48; /* Rose Red */
-            --secondary-color: #fff1f2; /* Light Pink - specified secondary */
-            --primary-light: #fbcfe8; /* Lighter Rose - existing in HTML */
-            --text-color: #333;
-            --light-gray: #f9f9f9;
-            --medium-gray: #e0e0e0;
-            --dark-gray: #555;
+            --primary-color: #7c3aed; /* The specified purple */
+            --secondary-color: #a78bfa; /* Lighter purple for hover/accents, derived from primary */
+            --dark-color: #1a083f; /* Very dark purple for header/text */
+            --text-color: #333; /* Standard dark text */
+            --light-bg: #f5f3ff; /* User specified secondary color, used as very light purple background */
             --white: #ffffff;
-            --error-color: #dc2626;
-            --success-color: #16a34a;
-            --font-family: 'Lato', sans-serif;
+            --border-radius: 8px;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.3s;
         }
 
         /* Base Styles & Reset */
-        *, *::before, *::after {
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -30,23 +28,32 @@
 
         html {
             scroll-behavior: smooth;
-            font-size: 16px;
         }
 
         body {
-            font-family: var(--font-family);
-            color: var(--text-color);
+            font-family: 'Urbanist', sans-serif;
             line-height: 1.6;
-            background-color: var(--light-gray);
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         a {
             text-decoration: none;
             color: var(--primary-color);
+            transition: color var(--transition-speed) ease;
         }
 
         a:hover {
-            color: var(--dark-gray);
+            color: var(--dark-color);
+        }
+
+        ul {
+            list-style: none;
         }
 
         img {
@@ -55,59 +62,46 @@
             display: block;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            line-height: 1.2;
-            margin-bottom: 0.5em;
-            font-weight: 700;
-        }
-
-        p {
-            margin-bottom: 1em;
-        }
-
         /* Utility Classes */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .text-center {
-            text-align: center;
+            padding: 0 20px;
         }
 
         .btn {
             display: inline-block;
             background-color: var(--primary-color);
             color: var(--white);
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            font-weight: 700;
-            transition: background-color 0.3s ease;
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: background-color var(--transition-speed) ease, transform 0.2s ease;
             border: none;
             cursor: pointer;
-            font-family: var(--font-family);
             font-size: 1rem;
+            text-align: center;
         }
 
         .btn:hover {
-            background-color: #c4183d; /* Slightly darker primary */
-            color: var(--white); /* Keep text white on hover */
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
         }
 
         .section-heading {
             font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-            font-weight: 700;
+            color: var(--dark-color);
             text-align: center;
+            margin-bottom: 50px;
+            font-weight: 800;
         }
-
+        
         /* Header */
         .header {
-            background-color: var(--white);
-            padding: 1rem 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 15px 0;
+            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -117,36 +111,28 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
         }
 
         .logo {
             font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-right: 1.5rem; /* Space between logo and nav */
+            font-weight: 800;
+            color: var(--white);
         }
 
-        .main-nav ul {
-            list-style: none;
+        .nav-menu ul {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center; /* Center items if they wrap */
+            gap: 30px;
         }
 
-        .main-nav ul li {
-            margin-left: 1.5rem;
-        }
-
-        .main-nav ul li a {
-            color: var(--text-color);
-            font-weight: 400;
-            padding: 0.5rem 0;
+        .nav-menu a {
+            color: var(--white);
+            font-weight: 600;
             position: relative;
-            transition: color 0.3s ease;
+            padding: 5px 0;
+            transition: color var(--transition-speed) ease;
         }
 
-        .main-nav ul li a::after {
+        .nav-menu a::after {
             content: '';
             position: absolute;
             left: 0;
@@ -154,35 +140,35 @@
             width: 0;
             height: 2px;
             background-color: var(--primary-color);
-            transition: width 0.3s ease;
+            transition: width var(--transition-speed) ease;
         }
 
-        .main-nav ul li a:hover::after {
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
             width: 100%;
         }
-
+        
         /* Hero Section */
         .hero {
-            background-color: var(--secondary-color);
-            padding: 4rem 0;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1548247065-ce18d41de1e3?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: var(--white);
+            padding: 100px 0;
             text-align: center;
             display: flex;
             align-items: center;
-            justify-content: center;
             min-height: 70vh;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-weight: 700;
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            color: var(--dark-gray);
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 40px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
@@ -190,85 +176,68 @@
 
         /* Features Section */
         .features {
-            padding: 4rem 0;
+            padding: 80px 0;
             background-color: var(--white);
         }
 
-        .features-grid {
+        .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 30px;
+            margin-top: 50px;
         }
 
-        .feature-card {
-            background-color: var(--secondary-color);
-            padding: 2rem;
-            border-radius: 8px;
+        .feature-item {
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            box-shadow: var(--shadow);
+            transition: transform var(--transition-speed) ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .feature-card:hover {
+        .feature-item:hover {
             transform: translateY(-5px);
         }
 
-        .feature-card h3 {
-            font-size: 1.75rem;
+        .feature-item svg {
             color: var(--primary-color);
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
         }
 
-        .feature-card p {
-            font-size: 1rem;
-            color: var(--dark-gray);
+        .feature-item h3 {
+            font-size: 1.7rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-weight: 700;
         }
-
-        /* About Section */
-        .about {
-            padding: 4rem 0;
-            background-color: var(--light-gray);
-        }
-
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .about-content h2 {
-            text-align: center;
-        }
-
-        .about-content p {
-            font-size: 1.1rem;
-            color: var(--text-color);
-        }
-
-        /* Reviews Section (replacing services) */
-        .reviews {
-            padding: 4rem 0;
-            background-color: var(--white);
+        
+        /* Reviews Section (Services in general template) */
+        .reviews-section {
+            padding: 80px 0;
+            background-color: var(--light-bg);
         }
 
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 30px;
         }
 
         .review-card {
-            background-color: var(--secondary-color);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 25px;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform var(--transition-speed) ease;
         }
 
         .review-card:hover {
@@ -279,142 +248,319 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
         }
 
         .review-card h3 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
+            font-size: 1.6rem;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-weight: 700;
         }
 
         .review-card .rating {
-            color: #f7d413; /* Star color */
-            margin-bottom: 0.5rem;
+            color: gold;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .review-card .rating span {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin-left: 5px;
         }
 
         .review-card p {
             font-size: 0.95rem;
-            color: var(--dark-gray);
-            flex-grow: 1; /* Allow description to take available space */
+            color: var(--text-color);
+            margin-bottom: 15px;
+            flex-grow: 1; /* Allow content to push button down */
         }
-
+        
         .review-card .btn {
-            margin-top: 1rem;
-            align-self: flex-start; /* Align button to start */
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 4rem 0;
-            background-color: var(--light-gray);
-        }
-
-        .contact-form {
-            max-width: 700px;
-            margin: 0 auto;
-            background-color: var(--white);
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-            color: var(--text-color);
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid var(--medium-gray);
-            border-radius: 4px;
-            font-family: var(--font-family);
-            font-size: 1rem;
-            color: var(--text-color);
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .form-group input[type="text"]:focus,
-        .form-group input[type="email"]:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px var(--primary-light);
-        }
-
-        .contact-form .btn {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1.1rem;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 2.5rem 0;
-            text-align: center;
+            margin-top: auto; /* Push button to bottom */
+            padding: 10px 20px;
             font-size: 0.9rem;
         }
 
-        .footer-nav ul {
-            list-style: none;
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .about-content {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 1rem;
+            align-items: center;
+            gap: 40px;
         }
 
-        .footer-nav ul li {
-            margin: 0 1rem;
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
         }
 
-        .footer-nav ul li a {
+        .about-image img {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-align: left;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            background-color: var(--primary-color);
             color: var(--white);
-            transition: color 0.3s ease;
+            padding: 60px 0;
+            text-align: center;
         }
 
-        .footer-nav ul li a:hover {
-            color: var(--secondary-color);
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
         }
 
-        /* Responsive Adjustments */
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info p svg {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .contact-form-wrapper {
+            flex: 2;
+            min-width: 300px;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form-wrapper h3 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: 'Urbanist', sans-serif;
+            font-size: 1rem;
+            transition: border-color var(--transition-speed) ease;
+        }
+
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-align: center;
+            display: none; /* Hidden by default */
+        }
+
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+            margin-top: auto; /* Pushes footer to the bottom */
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .footer .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer .footer-nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer .footer-nav a {
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        .footer .footer-nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer p {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-menu ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-heading {
+                font-size: 2rem;
+            }
+
+            .feature-grid, .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .logo {
-                margin-bottom: 1rem;
-                margin-right: 0;
+            .about-text h2 {
+                text-align: center;
             }
 
-            .main-nav ul {
+            .contact-content {
                 flex-direction: column;
-                align-items: center;
             }
 
-            .main-nav ul li {
-                margin: 0.5rem 0;
+            .cta-section h2 {
+                font-size: 2rem;
             }
+        }
 
+        @media (max-width: 480px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
             .hero p {
@@ -422,29 +568,36 @@
             }
 
             .section-heading {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
-            .features-grid, .reviews-grid {
-                grid-template-columns: 1fr;
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
 
-            .contact-form {
-                padding: 2rem;
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .nav-menu ul {
+                gap: 10px;
             }
         }
     </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header class="header">
         <div class="container">
             <a href="#" class="logo">CatFoodReviews</a>
-            <nav class="main-nav">
+            <nav class="nav-menu">
                 <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#features">Why Us?</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#features">Why Us</a></li>
                     <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -454,118 +607,154 @@
     <main>
         <section id="hero" class="hero">
             <div class="container">
-                <h1>Discover the Purr-fect Food for Your Feline Friend!</h1>
-                <p>Unbiased reviews, detailed analysis, and expert advice to help you choose the best nutrition for your cat's health and happiness.</p>
+                <h1>Find the Purr-fect Food for Your Feline Friend</h1>
+                <p>Dive into honest, in-depth reviews and comparisons of the top cat food brands. Make informed choices for a healthier, happier cat.</p>
                 <a href="#reviews" class="btn">Explore Reviews</a>
             </div>
         </section>
 
         <section id="features" class="features">
             <div class="container">
-                <h2 class="section-heading">Why Trust Our Reviews?</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <h3>Expert Analysis</h3>
-                        <p>Our team meticulously examines ingredients, nutritional value, and brand reputation to provide thorough insights.</p>
+                <h2 class="section-heading">Why Choose CatFoodReviews?</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Unbiased Reviews</h3>
+                        <p>We provide objective, data-driven assessments without brand influence.</p>
                     </div>
-                    <div class="feature-card">
-                        <h3>User-Submitted Insights</h3>
-                        <p>We combine professional analysis with real-world feedback from cat owners like you, for a complete picture.</p>
+                    <div class="feature-item">
+                        <i class="fas fa-paw"></i>
+                        <h3>Nutritional Insights</h3>
+                        <p>Deep dives into ingredients, dietary needs, and health benefits.</p>
                     </div>
-                    <div class="feature-card">
-                        <h3>Ingredient Breakdown</h3>
-                        <p>Understand exactly what's in your cat's bowl with our easy-to-read ingredient lists and explanations.</p>
+                    <div class="feature-item">
+                        <i class="fas fa-star-half-alt"></i>
+                        <h3>Community Ratings</h3>
+                        <p>Real feedback from cat parents like you to guide your decisions.</p>
                     </div>
-                    <div class="feature-card">
-                        <h3>Brand Comparisons</h3>
-                        <p>Easily compare top cat food brands side-by-side to make an informed decision that suits your cat's unique needs.</p>
+                    <div class="feature-item">
+                        <i class="fas fa-cat"></i>
+                        <h3>Tailored Recommendations</h3>
+                        <p>Find food suited for all ages, breeds, and dietary requirements.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="about">
+        <section id="reviews" class="reviews-section">
+            <div class="container">
+                <h2 class="section-heading">Our Latest Cat Food Reviews</h2>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <img src="https://images.unsplash.com/photo-1601614051061-000b0c2718e2?auto=format&fit=crop&q=80&w=1770&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Royal Canin">
+                        <h3>Royal Canin Feline Health Nutrition</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span>(4.5/5)</span>
+                        </div>
+                        <p>A well-regarded brand with specialized formulas for various cat needs, though ingredients can vary. Great for breed-specific diets.</p>
+                        <a href="#" class="btn">Read Review</a>
+                    </div>
+                    <div class="review-card">
+                        <img src="https://images.unsplash.com/photo-1596767512965-728b1bfb9816?auto=format&fit=crop&q=80&w=1770&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Orijen Cat & Kitten">
+                        <h3>Orijen Cat & Kitten Grain-Free</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span>(5.0/5)</span>
+                        </div>
+                        <p>High-quality, protein-rich, grain-free formula with fresh regional ingredients. A top choice for optimal feline health.</p>
+                        <a href="#" class="btn">Read Review</a>
+                    </div>
+                    <div class="review-card">
+                        <img src="https://images.unsplash.com/photo-1582234032470-3d7572702a46?auto=format&fit=crop&q=80&w=1770&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Blue Buffalo Wilderness">
+                        <h3>Blue Buffalo Wilderness Chicken</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span>(4.0/5)</span>
+                        </div>
+                        <p>A popular grain-free option with real meat as the first ingredient. Good for active cats, but watch out for some fillers.</p>
+                        <a href="#" class="btn">Read Review</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
             <div class="container">
                 <h2 class="section-heading">About CatFoodReviews</h2>
                 <div class="about-content">
-                    <p>At CatFoodReviews, our passion is feline health and happiness. We believe that every cat deserves the best possible nutrition, and navigating the vast world of cat food can be overwhelming for pet parents.</p>
-                    <p>That's why we created this platform: to provide clear, comprehensive, and unbiased reviews of cat food brands. Our mission is to empower you with the knowledge needed to make informed decisions, ensuring your beloved cat thrives on a diet tailored to their specific requirements.</p>
-                    <p>From kitten formulas to senior diets, grain-free options to veterinary-prescribed foods, we cover a wide spectrum. Join our community of dedicated cat lovers and discover the difference proper nutrition can make!</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="reviews" class="reviews">
-            <div class="container">
-                <h2 class="section-heading">Our Top-Rated Cat Food Brands</h2>
-                <div class="reviews-grid">
-                    <div class="review-card">
-                        <img src="https://via.placeholder.com/400x200?text=Brand+A+Cat+Food" alt="Brand A Cat Food">
-                        <h3>Purrfect Paws Premium</h3>
-                        <div class="rating">★★★★★</div>
-                        <p>An excellent choice for sensitive stomachs, with high-quality protein sources and essential fatty acids for a shiny coat.</p>
-                        <a href="#" class="btn btn-small">Read Review</a>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1514888653243-d343fdd3231e?auto=format&fit=crop&q=80&w=1770&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A cat enjoying food">
                     </div>
-                    <div class="review-card">
-                        <img src="https://via.placeholder.com/400x200?text=Brand+B+Cat+Food" alt="Brand B Cat Food">
-                        <h3>Whiskers' Delight Grain-Free</h3>
-                        <div class="rating">★★★★☆</div>
-                        <p>A popular grain-free option with natural ingredients and a blend of vitamins and minerals. Great for active cats.</p>
-                        <a href="#" class="btn btn-small">Read Review</a>
-                    </div>
-                    <div class="review-card">
-                        <img src="https://via.placeholder.com/400x200?text=Brand+C+Cat+Food" alt="Brand C Cat Food">
-                        <h3>Feline Feast Complete Nutrition</h3>
-                        <div class="rating">★★★★☆</div>
-                        <p>A balanced diet for adult cats, featuring real meat as the first ingredient and no artificial preservatives.</p>
-                        <a href="#" class="btn btn-small">Read Review</a>
-                    </div>
-                    <div class="review-card">
-                        <img src="https://via.placeholder.com/400x200?text=Brand+D+Cat+Food" alt="Brand D Cat Food">
-                        <h3>Kitten's First Steps</h3>
-                        <div class="rating">★★★★★</div>
-                        <p>Specifically formulated for growing kittens, supporting healthy development with DHA and easily digestible proteins.</p>
-                        <a href="#" class="btn btn-small">Read Review</a>
+                    <div class="about-text">
+                        <h2>Our Mission: Healthy Cats, Happy Owners</h2>
+                        <p>At CatFoodReviews, we are passionate cat parents dedicated to helping you make informed decisions about your feline friend's diet. We know that choosing the right cat food can be overwhelming with countless brands and conflicting information.</p>
+                        <p>That's why we meticulously research, analyze, and review a wide array of cat food brands, focusing on nutritional value, ingredient quality, and overall health impact. Our goal is to provide clear, reliable, and unbiased insights so you can confidently select the best food to nourish your beloved cat and ensure a long, healthy, and vibrant life.</p>
+                        <a href="#contact" class="btn">Get in Touch</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="contact">
+        <section id="cta" class="cta-section">
             <div class="container">
-                <h2 class="section-heading">Get In Touch</h2>
-                <form id="contactForm" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+                <h2>Never Miss a New Review!</h2>
+                <p>Sign up for our newsletter to get the latest cat food reviews, dietary guides, and exclusive tips delivered straight to your inbox.</p>
+                <a href="#contact" class="btn">Subscribe Now</a>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-heading">Contact Us</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Cat Lane, Feline City, CA 90210</p>
+                        <p><i class="fas fa-envelope"></i> info@catfoodreviews.com</p>
+                        <p><i class="fas fa-phone-alt"></i> (123) 456-7890</p>
+                        <p><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 5:00 PM</p>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                    <div class="contact-form-wrapper">
+                        <h3>Send Us a Message</h3>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                            <div id="formMessage" class="form-message"></div>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
         <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
             <nav class="footer-nav">
                 <ul>
                     <li><a href="#hero">Home</a></li>
-                    <li><a href="#features">Why Us?</a></li>
-                    <li><a href="#about">About</a></li>
                     <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
                 </ul>
             </nav>
             <p>&copy; 2023 CatFoodReviews. All rights reserved.</p>
@@ -573,32 +762,74 @@
     </footer>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-menu a, .footer-nav a, .hero .btn').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
 
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
 
-            // Basic validation
+                // Update active class for nav menu
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Set initial active class on page load or refresh
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentHash = window.location.hash || '#hero';
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                if (link.getAttribute('href') === currentHash) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+        
+        // Form submission handling
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent actual form submission
+
+            // Simple validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
             if (!name || !email || !message) {
-                alert('Please fill in all required fields.');
+                formMessage.textContent = 'Please fill in all required fields.';
+                formMessage.className = 'form-message error';
+                formMessage.style.display = 'block';
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                formMessage.textContent = 'Please enter a valid email address.';
+                formMessage.className = 'form-message error';
+                formMessage.style.display = 'block';
                 return;
             }
 
             // Simulate form submission
-            console.log('Form Submitted:');
-            console.log('Name:', name);
-            console.log('Email:', email);
-            console.log('Subject:', subject);
-            console.log('Message:', message);
-
-            alert('Thank you for your message, ' + name + '! We will get back to you soon.');
-
-            // Clear the form
-            this.reset();
+            setTimeout(() => {
+                formMessage.textContent = 'Thank you for your message! We will get back to you soon.';
+                formMessage.className = 'form-message success';
+                formMessage.style.display = 'block';
+                contactForm.reset(); // Clear form fields
+            }, 1000);
         });
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
     </script>
 </body>
 </html>

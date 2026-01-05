@@ -5,8 +5,8 @@
   "name": "Cat food reviews",
   "description": "A review site for Cat food brands",
   "siteType": "one-page",
-  "colorScheme": "rose",
-  "font": "Lato",
+  "colorScheme": "purple",
+  "font": "Urbanist",
   "tags": [
     "cats",
     "pets"
@@ -15,8 +15,8 @@
   "credentialSetId": "",
   "model": "gemini-2.5-flash",
   "customHtml": false,
-  "createdAt": 1767654330423,
-  "updatedAt": 1767654330423,
+  "createdAt": 1767654339852,
+  "updatedAt": 1767654339852,
   "buildMetadata": {
     "levrVersion": "0.5.3",
     "templateVersion": "2.0.0",
@@ -28,7 +28,7 @@
     "workflowVersions": {
       "deploy": "1.2.0"
     },
-    "buildTimestamp": 1767654330423,
+    "buildTimestamp": 1767654339852,
     "buildId": "qay0x11b",
     "model": "gemini-2.5-flash",
     "modelProvider": "gemini",
@@ -58,7 +58,7 @@
   "buildHistory": [
     {
       "buildId": "qay0x11b",
-      "timestamp": 1767654330423,
+      "timestamp": 1767654339852,
       "type": "initial",
       "model": "gemini-2.5-flash",
       "levrVersion": "0.5.3",
@@ -100,6 +100,6 @@
         "file": "security.yml"
       }
     },
-    "generatedAt": 1767654330423
+    "generatedAt": 1767654339852
   }
 }
