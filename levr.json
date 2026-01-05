@@ -1,0 +1,105 @@
+{
+  "version": "2.0",
+  "schemaVersion": "2.1",
+  "siteId": "qay0x11b",
+  "name": "Cat food reviews",
+  "description": "A review site for Cat food brands",
+  "siteType": "one-page",
+  "colorScheme": "rose",
+  "font": "Lato",
+  "tags": [
+    "cats",
+    "pets"
+  ],
+  "tools": [],
+  "credentialSetId": "",
+  "model": "gemini-2.5-flash",
+  "customHtml": false,
+  "createdAt": 1767654330423,
+  "updatedAt": 1767654330423,
+  "buildMetadata": {
+    "levrVersion": "0.5.3",
+    "templateVersion": "2.0.0",
+    "templateType": "site",
+    "promptVersions": {
+      "html": "2.0.0",
+      "tags": "2.0.0"
+    },
+    "workflowVersions": {
+      "deploy": "1.2.0"
+    },
+    "buildTimestamp": 1767654330423,
+    "buildId": "qay0x11b",
+    "model": "gemini-2.5-flash",
+    "modelProvider": "gemini",
+    "modelInfo": {
+      "name": "gemini-2.5-flash",
+      "provider": "gemini",
+      "family": "gemini-2.5",
+      "version": "2.5",
+      "variant": "flash"
+    }
+  },
+  "source": {
+    "github": {
+      "owner": "xndr-tech",
+      "repo": "cat-food-reviews-qay0x11b",
+      "branch": "main",
+      "url": "https://github.com/xndr-tech/cat-food-reviews-qay0x11b"
+    },
+    "cloudflare": {
+      "accountId": "b6af5ded35131641c4ebe125bbbf0250",
+      "workerName": "cat-food-reviews-qay0x11b",
+      "subdomain": "",
+      "previewUrl": ""
+    },
+    "credentialSetId": ""
+  },
+  "buildHistory": [
+    {
+      "buildId": "qay0x11b",
+      "timestamp": 1767654330423,
+      "type": "initial",
+      "model": "gemini-2.5-flash",
+      "levrVersion": "0.5.3",
+      "success": true
+    }
+  ],
+  "workflows": {
+    "version": "1.0.0",
+    "levrVersion": "0.5.3",
+    "modules": {
+      "deploy": {
+        "enabled": true,
+        "version": "1.2.0",
+        "file": "deploy.yml"
+      },
+      "preview": {
+        "enabled": true,
+        "version": "1.2.0",
+        "file": "preview.yml"
+      },
+      "qa": {
+        "enabled": true,
+        "version": "1.1.0",
+        "file": "qa.yml"
+      },
+      "seo": {
+        "enabled": false,
+        "version": "1.1.0",
+        "file": "seo.yml"
+      },
+      "lighthouse": {
+        "enabled": false,
+        "version": "1.1.0",
+        "file": "lighthouse.yml"
+      },
+      "security": {
+        "enabled": false,
+        "version": "1.0.0",
+        "file": "security.yml"
+      }
+    },
+    "generatedAt": 1767654330423
+  }
+}
